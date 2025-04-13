@@ -19,6 +19,28 @@ def mask_account_card(account_card: str) -> str | None:
             return f"Счет {get_mask_account_number(''.join(number))}"
 
 
-def get_date(date_time: str) -> str:
-    """Функция для преобразования даты и времени в формат ДД.ММ.ГГГГ"""
-    return f"{date_time[8:10]}.{date_time[5:7]}.{date_time[:4]}"
+from datetime import datetime
+
+
+def get_date(my_date: str) -> str:
+    """Функция конвертирования даты"""
+    date_formats = [
+        "%Y-%m-%dT%H:%M:%S.%f",
+        "%Y-%m-%dT%H:%M:%S",
+        "%Y-%m-%dT%H:%M",
+        "%Y-%m-%dT%H",
+        "%Y-%m-%dT",
+        "%Y-%m",
+        "%Y",
+        "%H:%M:%S.%f",
+        "%M:%S.%f",
+        "%S.%f",
+        "%f",
+    ]
+    for fmt in date_formats:
+        try:
+            date_obj = datetime.strptime(my_date, fmt)
+            return date_obj.strftime("%d.%m.%Y")
+        except ValueError:
+            continue
+    raise ValueError("Неверный формат даты")

@@ -7,5 +7,8 @@ def filter_by_state(operation: list[dict], state: str = "EXECUTED") -> list[dict
 
 def sort_by_date(operation: list[dict], flow: bool = True) -> list[dict]:
     """Функция возвращает новый список, отсортированный по дате."""
-
-    return sorted(operation, key=lambda item: item["date"], reverse=flow)
+    try:
+        return sorted(operation, key=lambda item: item["date"], reverse=flow)
+    except KeyError:
+        print("Неверный формат даты")
+        raise KeyError("Неверный формат даты")
