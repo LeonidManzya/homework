@@ -1,0 +1,56 @@
+get_mask_card_number started with arguments: ('9485213408774653',), {}
+Execution time: 0:00:00.000010
+get_mask_card_number ended -> OK
+Results: 9485 21** **** 4653
+get_mask_card_number started with arguments: ('094852134087746530',), {}
+Execution time: 0:00:00.000007
+get_mask_card_number ended -> OK
+Results: Проверьте правильность введенного номера карты!
+get_mask_card_number started with arguments: ('',), {}
+Execution time: 0:00:00.000007
+get_mask_card_number ended -> OK
+Results: Проверьте правильность введенного номера карты!
+get_mask_card_number started with arguments: ('1596837868705199',), {}
+Execution time: 0:00:00.000012
+get_mask_card_number ended -> OK
+Results: 1596 83** **** 5199
+get_mask_card_number started with arguments: ('5999414228426353',), {}
+Execution time: 0:00:00.000008
+get_mask_card_number ended -> OK
+Results: 5999 41** **** 6353
+get_mask_card_number started with arguments: ('6831982476737658',), {}
+Execution time: 0:00:00.000007
+get_mask_card_number ended -> OK
+Results: 6831 98** **** 7658
+get_mask_card_number started with arguments: ('599941422',), {}
+Execution time: 0:00:00.000004
+get_mask_card_number ended -> OK
+Results: Проверьте правильность введенного номера карты!
+get_mask_card_number started with arguments: ('9485213408774653',), {}
+Execution time: 0:00:00.000019
+get_mask_card_number ended -> OK
+Results: 9485 21** **** 4653
+get_mask_card_number started with arguments: ('094852134087746530',), {}
+Execution time: 0:00:00.000008
+get_mask_card_number ended -> OK
+Results: Проверьте правильность введенного номера карты!
+get_mask_card_number started with arguments: ('',), {}
+Execution time: 0:00:00.000007
+get_mask_card_number ended -> OK
+Results: Проверьте правильность введенного номера карты!
+get_mask_card_number started with arguments: ('1596837868705199',), {}
+Execution time: 0:00:00.000017
+get_mask_card_number ended -> OK
+Results: 1596 83** **** 5199
+get_mask_card_number started with arguments: ('5999414228426353',), {}
+Execution time: 0:00:00.000008
+get_mask_card_number ended -> OK
+Results: 5999 41** **** 6353
+get_mask_card_number started with arguments: ('6831982476737658',), {}
+Execution time: 0:00:00.000012
+get_mask_card_number ended -> OK
+Results: 6831 98** **** 7658
+get_mask_card_number started with arguments: ('599941422',), {}
+Execution time: 0:00:00.000007
+get_mask_card_number ended -> OK
+Results: Проверьте правильность введенного номера карты!
