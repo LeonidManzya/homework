@@ -1,0 +1,4 @@
+get_mask_card_number started with arguments: ('9485213408774653',), {}
+Execution time: 0:00:00.000035
+get_mask_card_number ended -> OK
+Results: 9485 21** **** 4653
