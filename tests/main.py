@@ -1,7 +1,9 @@
 # from src.masks import get_mask_account_number
-#from src.masks import get_mask_card_number
-#from src.processing import filter_by_state
-#from src.processing import sort_by_date
+# from src.masks import get_mask_card_number
+# from src.processing import filter_by_state
+# from src.processing import sort_by_date
+from src.external_api import convert_transaction
+from src.utils import transactions
 
 # print(get_mask_card_number("9485213408774653"))
 # print(get_mask_account_number("84638237493322774455"))
@@ -21,7 +23,7 @@
 # print(get_date("2024-33-11T02:26:18.671407"))
 
 
-#print(
+# print(
 #    filter_by_state(
 #        [
 #            {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
@@ -30,8 +32,8 @@
 #            {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
 #        ]
 #    )
-#)
-#print(
+# )
+# print(
 #    sort_by_date(
 #        [
 #            {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
@@ -40,4 +42,16 @@
 #            {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
 #        ]
 #    )
-#)
+# )
+print(transactions(r"C:\Users\LM\PycharmProjects\PythonProject1\data\operations.json"))
+
+print(
+    convert_transaction(
+        {
+            "id": 41428829,
+            "state": "EXECUTED",
+            "date": "2019-07-03T18:35:29.512364",
+            "operationAmount": {"amount": "8221.37", "currency": {"name": "USD", "code": "USD"}},
+        }
+    )
+)
