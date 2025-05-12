@@ -36,6 +36,15 @@
 Функция convert_transaction:
 
  Функция конвертации валюты в рубли.
+
+Функция read_csv_file
+
+ Функция чтения csv файла
+
+Функцияread_xlsx_file
+
+ Функция чтения XLSX файла
+
 ## Тесты
 
 test_get_mask_card_number

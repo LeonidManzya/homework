@@ -2,11 +2,12 @@ import json
 import logging
 
 logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler('../logs/utils.log', mode='w', encoding="utf-8")
-file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_handler = logging.FileHandler("../logs/utils.log", mode="w", encoding="utf-8")
+file_formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
+
 
 def transactions(file_path: str) -> list[dict]:
     """Функция чтения json файла"""
@@ -29,5 +30,6 @@ def transactions(file_path: str) -> list[dict]:
     except FileNotFoundError:
         logger.error("Файл не найден")
         raise FileNotFoundError(f"Файл не найден: {file_path}")
+
 
 print(transactions(r"C:\Users\LM\PycharmProjects\PythonProject1\data\operations.json"))
