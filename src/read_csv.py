@@ -3,11 +3,16 @@ import csv
 def read_csv_file(file_path: str) -> list[dict]:
 
     try:
+        dikct_list = []
         with open(file_path, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f, delimiter= ';')
             for row in reader:
-                print(row['id'], row["state"], row["date"], row["amount"], row["currency_name"], row["currency_code"],
-                      row["from"], row["to"], row["description"])
+                dict = {"id": row['id'], "state": row["state"], "date": row["date"],
+                       "amount": row["amount"], "currency_name": row["currency_name"],
+                       "currency_code": row["currency_code"], "from": row["from"], "to": row["to"],
+                       "description": row["description"]}
+                dikct_list.append(dict)
+        return dikct_list
     except FileNotFoundError:
         raise FileNotFoundError(f"Файл не найден: {file_path}")
 
