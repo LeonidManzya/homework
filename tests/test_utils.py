@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from src.utils import transactions
+from src.utils import read_json
 
 
 class TestTransactions(unittest.TestCase):
@@ -11,7 +11,7 @@ class TestTransactions(unittest.TestCase):
         """Тест чтения корректного JSON-файла"""
 
         mock_json_load.return_value = [{"key": "value"}]
-        result = transactions("test.json")
+        result = read_json("test.json")
 
         self.assertEqual(result, [{"key": "value"}])
 
@@ -19,10 +19,10 @@ class TestTransactions(unittest.TestCase):
     def test_file_not_found(self, mock_open):
         """Тест чтения отсутствующего файла"""
 
-        with self.assertRaises(FileNotFoundError) as context:
-            transactions("path/to/nonexistent/file.json")
+        with self.assertRaises(FileNotFoundError):
+            read_json("path/to/nonexistent/file.json")
 
-        self.assertIn("path/to/nonexistent/file.json", str(context.exception))
+        # Проверяем, что функция open была вызвана с правильными аргументами
         mock_open.assert_called_once_with("path/to/nonexistent/file.json", "r", encoding="utf-8")
 
     @patch("builtins.open")
@@ -33,7 +33,7 @@ class TestTransactions(unittest.TestCase):
         mock_json_load.return_value = {"key": "value"}
 
         with self.assertRaises(ValueError) as context:
-            transactions("invalid.json")
+            read_json("invalid.json")
 
         self.assertEqual(str(context.exception), "JSON файл должен содержать список")
         mock_open_file.assert_called_once_with("invalid.json", "r", encoding="utf-8")

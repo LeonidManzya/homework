@@ -4,21 +4,10 @@ from typing import List, Dict, Any
 
 
 def filter_transactions_by_description(
-        transactions: List[Dict[str, Any]],
-        search_pattern: str
+    transactions: List[Dict[str, Any]], search_pattern: str
 ) -> List[Dict[str, Any]]:
-    """
-    Фильтрует транзакции по описанию (через регулярное выражение).
-
-    Args:
-        transactions: Список словарей с транзакциями.
-        search_pattern: Регулярное выражение для поиска в поле "description".
-
-    Returns:
-        Список транзакций, где описание совпадает с `search_pattern`.
-    """
     try:
-        pattern = re.compile(search_pattern, re.IGNORECASE)
+        pattern = re.compile(re.escape(search_pattern), re.IGNORECASE)  # Экранируем спецсимволы
     except re.error:
         return []
 
@@ -32,15 +21,8 @@ def filter_transactions_by_description(
 
 
 if __name__ == "__main__":
-    # Загрузка данных из JSON-файла
-    with open('data/operations.json', 'r', encoding='utf-8') as file:
-        transactions = json.load(file)  # Предполагается, что файл содержит список словарей
+    with open(r"C:\Users\LM\PycharmProjects\PythonProject1\data\operations.json", "r", encoding="utf-8") as file:
+        transactions = json.load(file)  # Читаем JSON и преобразуем в список словарей
 
-    # Фильтрация транзакций
-    filtered = filter_transactions_by_description(transactions, 'перевод')
+    filtered = filter_transactions_by_description(transactions, "открытие")
     print(filtered)
-
-if __name__ == "__main__":
-    with open('data/operations.json', 'r') as file:
-        data = file.read()
-    filtered = filter_transactions_by_description(data, 'перевод')
