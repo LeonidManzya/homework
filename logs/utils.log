@@ -1,1 +1,2 @@
-2025-05-09 01:43:39,597 INFO: Файл открыт
+2025-10-15 06:29:26 DEBUG [utils.py:28]: Попытка чтения файла: C:\Users\LM\PycharmProjects\PythonProject1\data\operations.json
+2025-10-15 06:29:26 INFO [utils.py:43]: Успешно прочитано 101 записей из C:\Users\LM\PycharmProjects\PythonProject1\data\operations.json

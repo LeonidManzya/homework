@@ -1,5 +1,7 @@
 import pytest
-
+import logging
+import os
+from pathlib import Path
 
 @pytest.fixture
 def fixture_number_card() -> str:
@@ -183,3 +185,20 @@ def make_descriptions1() -> list:
 @pytest.fixture
 def make_descriptions3() -> list:
     return ["Ошибка! Отсутствует описание транзакции", "Перевод со счета на счет"]
+
+
+@pytest.fixture(autouse=True)
+def setup_logging():
+    """Настройка логгирования для тестов"""
+    # Создаем временную папку для логов тестов
+    test_log_dir = Path(__file__).parent / "test_logs"
+    test_log_dir.mkdir(exist_ok=True)
+
+    # Подменяем путь к логам в настройках
+    os.environ["LOG_DIR"] = str(test_log_dir)
+
+    # Отключаем логирование на время тестов
+    logging.disable(logging.CRITICAL)
+    yield
+    # Восстанавливаем логирование после тестов
+    logging.disable(logging.NOTSET)
